@@ -22,7 +22,7 @@ case class Box(center:Point, half_dim:Point) {
   }
 
   lazy val quarter_dim = half_dim.half()
-
+  
   def up_left_quadrant()
     = Box(Point(center.x - quarter_dim.x, center.y + quarter_dim.y), quarter_dim)
 

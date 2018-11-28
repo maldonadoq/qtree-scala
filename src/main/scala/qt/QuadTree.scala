@@ -47,15 +47,15 @@ class QuadTree(boundary:Box) {
             centerY = knn.y
             radius = 1
             stroke = Color.Blue
-          }                    
-      )      
+          }
+      )
     cmatches
   }
 
   private def range_query(range:Box, matches:MutableList[Point]) : Unit = {
     /*if (!boundary.intersects(range))
-      return*/
-    
+      return */
+
     points.filter(range.contains_point(_))
           .foreach(matches += _)
     

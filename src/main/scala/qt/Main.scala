@@ -18,17 +18,17 @@ object Main extends JFXApp{
   var lines = MutableList[Line]()
   
   var load: Boolean = true;
-  var filename = "/home/maldonado/Workspace/Scala/QuadTree/src/Data.csv"
+  var filename = "/home/maldonado/Qtree-Scala/src/main/scala/qt/Data.csv"
 
   var xsize:Int = 800
   var ysize:Int = 600
   
   var nc:Int = 100
-  var sep: Int = 20
+  var sep: Int = 10
   var nar: Int = 5
   var rd: Int = 1 
   
-  var ran: Int = 30
+  var ran: Int = 50
   
   val boundary = Box(Point(xsize/2,ysize/2), Point(xsize/2,ysize/2))  
   val qt = new QuadTree(boundary)
@@ -41,8 +41,10 @@ object Main extends JFXApp{
         if(ke.code == KeyCode.Space && load) {                            
           qt.load_csv(circles, filename)          
           content = circles
+          
           lines = qt.get_lines()          
           lines.foreach(line => content += line)
+
           load = false
         }
       }
