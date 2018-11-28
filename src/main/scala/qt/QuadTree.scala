@@ -1,4 +1,6 @@
 
+package qt
+
 import scalafx.scene.shape.{Line, Circle}
 import scalafx.scene.paint.Color
 import scala.io.Source
@@ -44,7 +46,7 @@ class QuadTree(boundary:Box) {
             centerX = knn.x
             centerY = knn.y
             radius = 1
-            stroke = Color.BLUE            
+            stroke = Color.Blue
           }                    
       )      
     cmatches
@@ -81,8 +83,8 @@ class QuadTree(boundary:Box) {
         boundary.center.x, boundary.center.y + boundary.half_dim.y
     )
     
-    line1.setStroke(Color.GREEN)
-    line2.setStroke(Color.GREEN)
+    line1.setStroke(Color.Green)
+    line2.setStroke(Color.Green)
     
     lines += line1
     lines += line2
@@ -121,7 +123,7 @@ class QuadTree(boundary:Box) {
             centerX = cols(0).toInt
             centerY = cols(1).toInt
             radius = 1
-            stroke = Color.RED
+            stroke = Color.Red
           }
           insert(Point(cols(0).toInt,cols(1).toInt))
       }

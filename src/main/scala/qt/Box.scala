@@ -1,4 +1,6 @@
 
+package qt
+
 case class Box(center:Point, half_dim:Point) {
 
   def contains_point(point:Point) : Boolean = {

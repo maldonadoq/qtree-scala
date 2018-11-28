@@ -1,3 +1,4 @@
+package qt
 
 import scalafx.Includes._
 import scalafx.application.JFXApp
@@ -8,7 +9,6 @@ import scalafx.scene.paint.Color
 import scalafx.scene.input._
 
 import scala.collection.mutable.MutableList
-import scala.util.Random
 
 object Main extends JFXApp{
   val utils = new Utils()
@@ -17,8 +17,9 @@ object Main extends JFXApp{
   var matches = MutableList[Circle]()
   var lines = MutableList[Line]()
   
+  var load: Boolean = true;
   var filename = "/home/maldonado/Workspace/Scala/QuadTree/src/Data.csv"
-  
+
   var xsize:Int = 800
   var ysize:Int = 600
   
@@ -37,11 +38,12 @@ object Main extends JFXApp{
     scene = new Scene (xsize,ysize){                  
       
       onKeyPressed = (ke: KeyEvent) => {
-        if(ke.code == KeyCode.SPACE) {                            
+        if(ke.code == KeyCode.Space && load) {                            
           qt.load_csv(circles, filename)          
           content = circles
           lines = qt.get_lines()          
           lines.foreach(line => content += line)
+          load = false
         }
       }
       
@@ -50,7 +52,7 @@ object Main extends JFXApp{
               centerX = e.x
               centerY = e.y
               radius = rd
-              stroke = Color.RED
+              stroke = Color.Red
             }
         
         qt.insert(Point(e.x,e.y))
@@ -72,7 +74,7 @@ object Main extends JFXApp{
               centerX = e.x+xt
               centerY = e.y+yt
               radius = rd
-              stroke = Color.RED
+              stroke = Color.Red
             }
             
             circles += cr                   
@@ -93,7 +95,7 @@ object Main extends JFXApp{
           startY = e.y-ran
           endX = e.x+ran 
           endY = e.y-ran
-          stroke = Color.BLUE     
+          stroke = Color.Blue
         }
         
         var line2 = new Line{
@@ -101,7 +103,7 @@ object Main extends JFXApp{
           startY = e.y-ran
           endX = e.x+ran 
           endY = e.y+ran
-          stroke = Color.BLUE     
+          stroke = Color.Blue     
         }
         
         var line3 = new Line{
@@ -109,7 +111,7 @@ object Main extends JFXApp{
           startY = e.y+ran
           endX = e.x-ran 
           endY = e.y+ran
-          stroke = Color.BLUE     
+          stroke = Color.Blue     
         }
         
         var line4 = new Line{
@@ -117,7 +119,7 @@ object Main extends JFXApp{
           startY = e.y+ran
           endX = e.x-ran 
           endY = e.y-ran
-          stroke = Color.BLUE     
+          stroke = Color.Blue     
         }                  
                 
         
@@ -133,7 +135,7 @@ object Main extends JFXApp{
       }
                 
       // Parameters      
-      fill = Color.BLACK      
+      fill = Color.Black
     }
   }
 }
