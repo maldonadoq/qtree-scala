@@ -1,4 +1,4 @@
-# qtree-scala
+# Quad-Tree Scala
 Quad Tree - Scala - Lenguajes de Programación 
 
 Visualization of quadtree in scala language
